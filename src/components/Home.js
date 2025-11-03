@@ -341,14 +341,14 @@ const Home = () => {
       {/* =============================================== service start ================================================ */}
       <section className='container my-5'>
         <div className='row'>
-          <div className='col-4  border-end '>
+          <div className='col-md-4 col-12  border-end '>
             <p className="text-uppercase fw-bold title p-0">our services</p>
             <h1 className="fw-bold pb-3 about-header text-capitalize ">
               provide unique<br></br>& quality services
             </h1>
 
           </div>
-          <div className='col-md-7 col-7 service-banner text-white align-self-center ms-md-5 ms-2'>
+          <div className='col-md-7 col-12 service-banner text-white align-self-center ms-md-5 ms-2'>
             <h2 className='p-4 fs-4'>Do you have projects? &nbsp; <br></br><strong>+98745 214 785</strong></h2>
           </div>
         </div>
