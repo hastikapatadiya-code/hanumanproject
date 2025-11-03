@@ -294,7 +294,7 @@ const Home = () => {
       {/* ================================================ about us section start ===================================== */}
             <div className='spacer'></div>
       <div className="about-section container-fluid py-5">
-        <div className="row align-items-center ">
+        <div className="row align-items-center m-0">
           <div className="col-lg-6 d-flex justify-content-end">
             <div className="about-images d-flex">
               <div className="small-images d-flex flex-column justify-content-between me-2">
@@ -321,7 +321,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="col-lg-6 about-text text-white px-4">
+          <div className="col-lg-6 about-text text-white px-4 mt-lg-0 mt-3">
             <p className="sub-title mb-2">ABOUT US</p>
             <h2 className="title mb-3">Delighting customers since 1990</h2>
             <p className="desc mb-4">
@@ -341,7 +341,7 @@ const Home = () => {
       {/* =============================================== service start ================================================ */}
       <section className='container my-5'>
         <div className='row'>
-          <div className='col-md-4 col-12  border-end '>
+    <div className="col-md-4 col-12 border-end border-end-md-0">
             <p className="text-uppercase fw-bold title p-0">our services</p>
             <h1 className="fw-bold pb-3 about-header text-capitalize ">
               provide unique<br></br>& quality services
