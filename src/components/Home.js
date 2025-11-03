@@ -18,6 +18,10 @@ import achieveimg5 from '../images/acheve5.png';
 import achieveimg6 from '../images/acheve6.png';
 import CountUp from 'react-countup';
 import aboutimg1 from '../images/about1.webp';
+import aboutimg2 from '../images/a1.webp';
+import aboutimg3 from '../images/a2.jpg';
+import aboutimg4 from '../images/a3.jpg';
+
 import pattern from '../images/pattern.webp';
 import { Link } from "react-router-dom";
 import Footer from './Footer';
@@ -295,10 +299,10 @@ const Home = () => {
             <div className='spacer'></div>
       <div className="about-section container-fluid py-5">
         <div className="row align-items-center m-0">
-          <div className="col-lg-6 d-flex justify-content-end">
+          <div className="col-lg-6 d-flex justify-content-lg-end justify-content-center">
             <div className="about-images d-flex">
               <div className="small-images d-flex flex-column justify-content-between me-2">
-                {[aboutimg1, aboutimg1, pattern].map((img, index) => (
+                {[aboutimg4, aboutimg2, aboutimg3].map((img, index) => (
                   <img key={index} src={img}
                     alt={`thumb-${index}`}
                     className="img-fluid rounded mb-2"
