@@ -6,7 +6,6 @@
   padding: 0%;
   box-sizing: border-box;
 }
-
 img {
   height: 100%;
   width: 100%;
@@ -217,31 +216,9 @@ a:link {
   transform: scale(1.05);
 }
 
-.main-image img {
-
-  transition: transform 0.4s ease;
-}
-
-.main-image img:hover {
-  transform: scale(1.02);
-}
-
 .about-text {
   animation: fadeInUp 1s ease;
 }
-
-.sub-title {
-  color: #c98a3f;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.title {
-  font-weight: 800;
-  font-size: 2.2rem;
-}
-
 .desc {
   font-size: 16px;
   line-height: 1.8;

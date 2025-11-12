@@ -2,12 +2,10 @@ import Header from '../components/Header';
 import bannerimg from '../images/2.jpg';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { GrProjects } from "react-icons/gr";
 import { IoLocationOutline } from "react-icons/io5";
 import { TbSwimming } from "react-icons/tb";
 import { Currentprojectslider } from './Residential';
 import { FaCubes } from "react-icons/fa6";
-import { MdOutlineContactPage } from "react-icons/md";
 import { LiaBedSolid } from "react-icons/lia";
 import feature from '../images/millenia-features.jpg';
 import achieveimg1 from '../images/achieve1.png';
@@ -21,8 +19,6 @@ import aboutimg1 from '../images/about1.webp';
 import aboutimg2 from '../images/a1.webp';
 import aboutimg3 from '../images/a2.jpg';
 import aboutimg4 from '../images/a3.jpg';
-
-import pattern from '../images/pattern.webp';
 import { Link } from "react-router-dom";
 import Footer from './Footer';
 import 'animate.css';
@@ -35,7 +31,6 @@ import service2 from "../images/service2.jpg";
 import service3 from "../images/service3.jpg";
 import service4 from "../images/service4.jpg";
 import service5 from "../images/service5.webp";
-import Goverment from './Goverment';
 
 
 const Home = () => {
@@ -58,9 +53,6 @@ const Home = () => {
     triggerOnce: true,
     threshold: 0.2,
   });
-
-
-
 
   const { ref: featuresLeftRef, inView: featuresLeftInView } = useInView({
     triggerOnce: false,
@@ -213,6 +205,7 @@ const Home = () => {
   ]
   const builderBlogs = [
     {
+       img: service2,
       title: "Step-by-step Guide for First-Time Homebuyers",
       description: "This guide will help new homebuyers understand budgeting, location selection, documentation, and more.",
       category: "Real Estate",
@@ -220,6 +213,7 @@ const Home = () => {
       date: "4 Aug, 2025",
     },
     {
+       img: service2,
       title: "Step-by-step Guide for First-Time Homebuyers",
       description: "This guide will help new homebuyers understand budgeting, location selection, documentation, and more.",
       category: "Real Estate",
@@ -227,6 +221,7 @@ const Home = () => {
       date: "4 Aug, 2025",
     },
     {
+       img: service2,
       title: "Step-by-step Guide for First-Time Homebuyers",
       description: "This guide will help new homebuyers understand budgeting, location selection, documentation, and more.",
       category: "Real Estate",
@@ -296,47 +291,70 @@ const Home = () => {
       </div>
 
       {/* ================================================ about us section start ===================================== */}
-            <div className='spacer'></div>
-      <div className="about-section container-fluid py-5">
-        <div className="row align-items-center m-0">
-          <div className="col-lg-6 d-flex justify-content-lg-end justify-content-center">
-            <div className="about-images d-flex">
-              <div className="small-images d-flex flex-column justify-content-between me-2">
-                {[aboutimg4, aboutimg2, aboutimg3].map((img, index) => (
-                  <img key={index} src={img}
-                    alt={`thumb-${index}`}
-                    className="img-fluid rounded mb-2"
-                    style={{
-                      cursor: "pointer",
-                      transition: "0.3s ease",
-                    }}
-                    onClick={() => setMainImage(img)}
-                  />
-                ))}
-              </div>
-              <div className="main-image">
-                <img
-                  src={mainImage}
-                  alt="Main"
-                  className="img-fluid rounded"
-                  style={{ width: "350px", height: "450px", objectFit: "cover" }}
-                />
-              </div>
-            </div>
-          </div>
+    <div className="spacer"></div>
+<div className="about-section container-fluid py-5">
+  <div className="row align-items-center m-0">
+  
+    <div className="col-lg-6 about-text text-white px-4 mt-lg-0 mt-3 order-1 order-lg-2">
+      <p className="text-uppercase fw-bold title p-0 mb-2">ABOUT US</p>
+      <h3 className="title mb-3">Delighting customers since 1990</h3>
+      <p className="desc mb-4">
+        At Shree Kashtbhanjan Infra, we specialize in delivering high-quality
+        construction solutions for both private sector projects and government
+        works. With a strong foundation of expertise, commitment, and
+        innovation, we undertake projects through competitive tenders for
+        State Government and Central Government departments, as well as private
+        developers.
+      </p>
+      <button className="btn-readmore">
+        <Link to="/about" className="text-white">READ MORE</Link>
+      </button>
+    </div>
 
-          <div className="col-lg-6 about-text text-white px-4 mt-lg-0 mt-3">
-            <p className="sub-title mb-2">ABOUT US</p>
-            <h2 className="title mb-3">Delighting customers since 1990</h2>
-            <p className="desc mb-4">
-              At Shree Kashtbhanjan Infra, we specialize in delivering high-quality construction solutions for both private sector projects and government works. With a strong foundation of expertise, commitment, and innovation, we undertake projects through competitive tenders for State Government and Central Government departments, as well as private developers.
-            </p>
-            <button className="btn-readmore">
-              <Link to="/about" className="text-white">READ MORE</Link>
-            </button>
-          </div>
-        </div>
-      </div>
+  <div className="col-lg-6 d-flex justify-content-lg-end justify-content-center order-2 order-lg-1  mt-lg-0 mt-3">
+  <div className="about-images d-flex flex-lg-row flex-column align-items-center">
+    
+    {/* Main Image */}
+    <div className=" mb-3 mb-lg-0">
+      <img
+        src={mainImage}
+        alt="Main"
+        className=""
+        style={{
+          width: "350px",
+          height: "450px",
+          objectFit: "cover",
+          maxWidth: "100%",
+        }}
+      />
+    </div>
+
+    {/* Small Images */}
+    <div className="small-images d-flex flex-lg-column flex-row justify-content-center gap-2 ms-lg-2">
+      {[aboutimg4, aboutimg2, aboutimg3].map((img, index) => (
+        <img
+          key={index}
+          src={img}
+          alt={`thumb-${index}`}
+          className=""
+          style={{
+            width: "100px",
+            height: "100px",
+            objectFit: "cover",
+            cursor: "pointer",
+            transition: "0.3s ease",
+          }}
+          onClick={() => setMainImage(img)}
+        />
+      ))}
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</div>
+
       {/* ================================================ about us section end ===================================== */}
       <div className='spacer'></div>
       <h2 className=" title text-center fs-1 about-header tracking-widest">CURRENT PROJECTS</h2>
@@ -345,7 +363,7 @@ const Home = () => {
       {/* =============================================== service start ================================================ */}
       <section className='container my-5'>
         <div className='row'>
-    <div className="col-md-4 col-12 border-end border-end-md-0">
+    <div className="col-md-4 col-12 border-end border-end-md-0 ">
             <p className="text-uppercase fw-bold title p-0">our services</p>
             <h1 className="fw-bold pb-3 about-header text-capitalize ">
               provide unique<br></br>& quality services
@@ -360,8 +378,8 @@ const Home = () => {
        <div className="services-container">
       <Slider {...services}>
         {service.map((serviceItem, index) => (
-          <div key={index} className="service-card p-4">
-            {/* Wrap the whole card inside Link only if path exists */}
+         <div key={index} className="service-card p-4 overflow-x-hidden">
+
             {serviceItem.path ? (
               <Link
                 to={serviceItem.path}
@@ -451,62 +469,118 @@ const Home = () => {
       <div className='spacer'></div>
       {/* =============================================== Blog start ================================================ */}
 
-      <section className="container my-5" ref={sectionRef}>
-        <h2 className={`title text-center fs-1 about-header fw-bold mb-5 ${inView ? "animate__animated animate__pulse" : ""}`}>
-          OUR BLOG
-        </h2>
-        <div className={`row ${inView ? "animate__animated animate__fadeInUp" : ""}`}>
-          {builderBlogs.slice(0, 6).map((post, index) => (
-            <div key={index} className="col-md-4 col-sm-6 mb-4">
-              <div
-                className="blog-card h-100 p-4 position-relative"
-                style={{
-                  background: "#fff",
-                  borderLeft: "5px solid #f77a0c",
-                  borderRadius: "15px",
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.07)",
-                  transition: "all 0.4s ease",
-                  overflow: "hidden",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.02)")}
-                onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1.0)")}
-              >
-                <span className="badge mb-2 text-uppercase fw-semibold"
-                  style={{
-                    backgroundColor: "#fef2e5",
-                    color: "#f77a0c",
-                    padding: "4px 10px",
-                    fontSize: "11px",
-                    borderRadius: "20px",
-                    letterSpacing: "1px",
-                    display: "inline-block",
-                    width: "fit-content",
-                  }}>
-                  {post.category || "Blog"}
-                </span>
-                <h5 className="fw-bold mb-3" style={{ color: "#333", minHeight: "60px" }}>
-                  {post.title}
-                </h5>
-                <p className="text-muted small mb-3">{post.description?.slice(0, 100)}...</p>
-                <div className="d-flex justify-content-between align-items-center mt-auto pt-2 border-top" style={{ fontSize: "13px" }}>
-                  <small className="text-muted">
-                    {post.author || "Admin"} • {post.date || "21 Jan, 2023"}
-                  </small>
-                  <Link to="/blog" style={{ color: "#f77a0c", fontWeight: "600", textDecoration: "none" }} >
-                    Read More →
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+    <section className="container my-5" ref={sectionRef}>
+  <h2
+    className={`title text-center fs-1 about-header fw-bold mb-5 ${
+      inView ? "animate__animated animate__pulse" : ""
+    }`}
+  >
+    OUR BLOG
+  </h2>
 
-        <div className="text-center mt-4">
-          <Link to="/BLOG" className="project-btn position-relative d-inline-block me-3 rounded fw-bold px-3 py-2"
-            style={{ overflow: "hidden", zIndex: "1", transition: "color 0.4s ease", color: "#fff" }}>
-            VIEW MORE</Link>
+  <div className={`row ${inView ? "animate__animated animate__fadeInUp" : ""}`}>
+    {builderBlogs.slice(0, 6).map((post, index) => (
+      <div key={index} className="col-md-4 col-sm-6 mb-4">
+        <div
+          className="blog-card h-100 p-4 position-relative"
+          style={{
+            background: "#fff",
+            borderLeft: "5px solid #f77a0c",
+            borderRadius: "15px",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.07)",
+            transition: "all 0.4s ease",
+            overflow: "hidden",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.02)")}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1.0)")}
+        >
+          {/* 🖼 Blog Image */}
+          <div
+            className="blog-img mb-3"
+            style={{
+              borderRadius: "12px",
+              overflow: "hidden",
+              height: "200px",
+              position: "relative",
+            }}
+          >
+            <img
+              src={post.img}
+              alt={post.title}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                transition: "transform 0.4s ease",
+              }}
+              className="blog-thumbnail"
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1.0)")}
+            />
+          </div>
+
+          <span
+            className="badge mb-2 text-uppercase fw-semibold"
+            style={{
+              backgroundColor: "#fef2e5",
+              color: "#f77a0c",
+              padding: "4px 10px",
+              fontSize: "11px",
+              borderRadius: "20px",
+              letterSpacing: "1px",
+              display: "inline-block",
+              width: "fit-content",
+            }}
+          >
+            {post.category || "Blog"}
+          </span>
+
+          <h5 className="fw-bold " style={{ color: "#333", minHeight: "60px" }}>
+            {post.title}
+          </h5>
+
+          <p className="text-muted small mb-3">
+            {post.description?.slice(0, 100)}...
+          </p>
+
+          <div
+            className="d-flex justify-content-between align-items-center mt-auto pt-2 border-top"
+            style={{ fontSize: "13px" }}>
+            <small className="text-muted">
+              {post.author || "Admin"} • {post.date || "21 Jan, 2023"}
+            </small>
+            <Link
+              to="/blog"
+              style={{
+                color: "#f77a0c",
+                fontWeight: "600",
+                textDecoration: "none",
+              }}
+            >
+              Read More →
+            </Link>
+          </div>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+
+  <div className="text-center mt-4">
+    <Link
+      to="/BLOG"
+      className="project-btn position-relative d-inline-block me-3 rounded fw-bold px-3 py-2"
+      style={{
+        overflow: "hidden",
+        zIndex: "1",
+        transition: "color 0.4s ease",
+        color: "#fff",
+      }}
+    >
+      VIEW MORE
+    </Link>
+  </div>
+</section>
+
 
       {/* =============================================== Blog end ================================================ */}
       <div className='spacer'></div>
