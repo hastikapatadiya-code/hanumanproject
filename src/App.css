@@ -6,11 +6,23 @@
   padding: 0%;
   box-sizing: border-box;
 }
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
 img {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
+.slider-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 ul,
 li {
@@ -35,6 +47,8 @@ a:link {
 
 .container {
   font-family: "Raleway", sans-serif;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 .spacer {
@@ -179,6 +193,55 @@ a:link {
 
 .main-bar-menu li:hover .bar-menu {
   color: var(--body-color) !important;
+}
+
+
+.slick-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.slick-slide {
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.slick-list {
+  margin: 0 -10px;
+}
+
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Fix for contents section slider */
+.contents-section {
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+.contents-section .slick-list {
+  overflow: hidden;
+  margin: 0;
+}
+
+.contents-section .slick-slide {
+  padding: 0 5px;
+}
+
+@media (max-width: 768px) {
+  .contents-section .slick-slide {
+    padding: 0;
+  }
+  
+  .contents-section .slick-list {
+    margin: 0;
+  }
 }
 
 /* 
@@ -394,10 +457,11 @@ a:link {
 
 .service-image img {
   width: 100%;
-  height: 250px;   
-  object-fit: cover; 
+  height: 250px;
+  object-fit: cover;
   display: block;
 }
+
 
 .service-info {
   background-color: var(--body-color); 
@@ -407,6 +471,17 @@ a:link {
   justify-content: space-between;
   padding: 15px 20px;
 }
+.services-container {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.service-card {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
 
 
 /* ======================================= contact page ===================================== */
@@ -628,7 +703,84 @@ a:link {
   height: 380px;
   overflow: hidden;
   background-color: #f0f0f0;
+  margin: 0 auto;
+}
 
+@media (max-width: 768px) {
+  .content-card {
+    width: 100% !important;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  
+  /* Force slider container to show only one slide - AGGRESSIVE */
+  .contents-section .slick-list {
+    overflow: hidden !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .contents-section .slick-track {
+    width: 100% !important;
+    display: flex !important;
+    align-items: stretch;
+    transform: translate3d(0px, 0px, 0px) !important;
+  }
+  
+  /* Hide ALL slides by default */
+  .contents-section .slick-slide {
+    width: 100% !important;
+    margin: 0 !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    pointer-events: none !important;
+  }
+  
+  /* Show ONLY active slide */
+  .contents-section .slick-slide.slick-active {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    left: auto !important;
+    width: 100% !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Double check - hide any slide that's not active */
+  .contents-section .slick-slide:not(.slick-active) {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    pointer-events: none !important;
+  }
+  
+  .contents-section .slick-slide > div {
+    width: 100% !important;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+  
+  .contents-section .slick-slider {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+  
+  .contents-section .slick-arrow {
+    z-index: 1;
+  }
 }
 
 
