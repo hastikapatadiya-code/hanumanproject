@@ -322,6 +322,8 @@ const services = {
     <div className="col-lg-6 about-text text-white px-4 mt-lg-0 mt-3 order-1 order-lg-2">
       <p className="text-uppercase fw-bold title p-0 mb-2">ABOUT US</p>
       <h3 className="title mb-3">Delighting customers since 1990</h3>
+     
+
       <p className="desc mb-4">
         At Shree Kashtbhanjan Infra, we specialize in delivering high-quality
         construction solutions for both private sector projects and government
@@ -329,8 +331,9 @@ const services = {
         innovation, we undertake projects through competitive tenders for
         State Government and Central Government departments, as well as private
         developers.
+        casljfhdqlwkamfo
       </p>
-      <button className="btn-readmore">
+      <button className="btn-readmore fw-color">
         <Link to="/about" className="text-white">READ MORE</Link>
       </button>
     </div>
