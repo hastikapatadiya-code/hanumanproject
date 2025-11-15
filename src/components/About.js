@@ -80,11 +80,30 @@ const settings = {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    arrows: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
     responsive: [
+        {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 2,
+                arrows: true,
+            },
+        },
         {
             breakpoint: 768,
             settings: {
                 slidesToShow: 1,
+                arrows: true,
+            },
+        },
+        {
+            breakpoint: 576,
+            settings: {
+                slidesToShow: 1,
+                arrows: false,
+                dots: true,
             },
         },
     ],
@@ -480,16 +499,36 @@ const testimonials = [
     },
 ];
 
-export function Testimonials() {
-    const settings = {
-        slidesToShow: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        infinite: true,
-        speed: 700,
-        cssEase: "ease-out",
-    };
-
+ export function Testimonials() {
+     const settings = {
+         slidesToShow: 1,
+         slidesToScroll: 1,
+         autoplay: true,
+         autoplaySpeed: 2000,
+         infinite: true,
+         speed: 700,
+         cssEase: "ease-out",
+         dots: true,
+         arrows: true,
+         responsive: [
+             {
+                 breakpoint: 768,
+                 settings: {
+                     slidesToShow: 1,
+                     arrows: true,
+                 },
+             },
+             {
+                 breakpoint: 576,
+                 settings: {
+                     slidesToShow: 1,
+                     arrows: false,
+                     dots: true,
+                 },
+             },
+         ],
+     };
+   
     return (
         <>
             <div className="testimonial-section  text-center" style={{ overflow: "hidden", }}>

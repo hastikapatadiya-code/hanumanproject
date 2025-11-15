@@ -83,20 +83,31 @@ const Commercial = () => {
         autoplaySpeed: 2000,
         speed: 800,
         cssEase: "linear",
+        swipe: true,
+        touchMove: true,
 
         responsive: [
             {
                 breakpoint: 1400,
-                settings: { slidesToShow: 3 }
-
+                settings: { slidesToShow: 3, arrows: true }
             },
             {
                 breakpoint: 992,
-                settings: { slidesToShow: 2 }
+                settings: { slidesToShow: 2, arrows: true }
+            },
+            {
+                breakpoint: 768,
+                settings: { slidesToShow: 1, arrows: true }
             },
             {
                 breakpoint: 576,
-                settings: { slidesToShow: 1, arrows: false }
+                settings: { 
+                    slidesToShow: 1, 
+                    arrows: false,
+                    dots: true,
+                    swipe: true,
+                    touchMove: true
+                }
             }
         ]
     };

@@ -278,19 +278,37 @@ const services = {
     initialSlide: 0,
     centerMode: false,
     arrows: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
     responsive: [
+      {
+        breakpoint: 1400,
+        settings: { 
+          slidesToShow: 4,
+          arrows: true,
+        }
+      },
       {
         breakpoint: 992,
         settings: { 
-          slidesToShow: 3 , 
+          slidesToShow: 3,
+          arrows: true,
         }
       },
-        {
-          breakpoint: 768,
-          settings: { 
-            slidesToShow: 1, 
-          }
+      {
+        breakpoint: 768,
+        settings: { 
+          slidesToShow: 2,
+          arrows: true,
         }
+      },
+      {
+        breakpoint: 576,
+        settings: { 
+          slidesToShow: 1,
+          arrows: false,
+        }
+      }
     ]
   };
   
@@ -398,7 +416,7 @@ const services = {
 
           </div>
           <div className='col-md-7 col-12 service-banner text-white align-self-center ms-md-5 ms-2'>
-            <h2 className='p-4 fs-4'>Do you have projects? &nbsp; <br></br><strong>+98745 214 785</strong></h2>
+            <h2 className='p-4 fs-4'>Do you have projects? &nbsp; <br></br><strong style={{fontFamily:"initial"}}>+91 98745 14785</strong></h2>
           </div>
         </div>
               <div className='spacer'></div>

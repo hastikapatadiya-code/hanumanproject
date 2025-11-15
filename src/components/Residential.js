@@ -93,10 +93,18 @@ export default function Residential() {
                 },
             },
             {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    arrows: true,
+                },
+            },
+            {
                 breakpoint: 576,
                 settings: {
                     slidesToShow: 1,
                     arrows: false,
+                    dots: true,
                 },
             },
         ],
@@ -144,6 +152,7 @@ export default function Residential() {
                     <strong> Kashtbhanjan Infra</strong> – Building Legacies, Creating Landmarks
                 </h2>
                 <div className="spacer2"></div>
+             <div className="contents-section">
                 <Slider {...settings}>
                     {projects.map((proj) => (
                         <div key={proj.id} className="px-3">
@@ -184,6 +193,7 @@ export default function Residential() {
                         </div>
                     ))}
                 </Slider >
+              </div>
             </div >
             <div className='spacer'></div>
             <h2 className=" title text-center fs-1 about-header tracking-widest font">
@@ -270,12 +280,30 @@ export function Currentprojectslider() {
         autoplay: true,
         autoplaySpeed: 3000,
         arrows: true,
+        swipe: true,
+        touchMove: true,
 
         responsive: [
+            {
+                breakpoint: 1400,
+                settings: {
+                    slidesToShow: 3,
+                    arrows: true,
+                },
+            },
             {
                 breakpoint: 992,
                 settings: {
                     slidesToShow: 2,
+                    arrows: true,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    arrows: true,
+                    swipe: true,
                 },
             },
             {
@@ -283,6 +311,9 @@ export function Currentprojectslider() {
                 settings: {
                     slidesToShow: 1,
                     arrows: false,
+                    dots: true,
+                    swipe: true,
+                    touchMove: true,
                 },
             },
         ],

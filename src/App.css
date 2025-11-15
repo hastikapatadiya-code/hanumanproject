@@ -270,6 +270,17 @@ a:link {
   position: relative;
   display: block;
   box-sizing: border-box;
+  user-select: none;
+  touch-action: pan-y;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Slick slider base styles - let slick handle display */
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
 }
 
 /* Fix for contents section slider */
@@ -769,22 +780,22 @@ a:link {
   }
   
   /* Force slider container to show only one slide - AGGRESSIVE */
-  .contents-section .slick-list {
+  /* .contents-section .slick-list {
     overflow: hidden !important;
     width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
-  }
+  } */
   
-  .contents-section .slick-track {
+  /* .contents-section .slick-track {
     width: 100% !important;
     display: flex !important;
     align-items: stretch;
     transform: translate3d(0px, 0px, 0px) !important;
-  }
+  } */
   
   /* Hide ALL slides by default */
-  .contents-section .slick-slide {
+  /* .contents-section .slick-slide {
     width: 100% !important;
     margin: 0 !important;
     min-width: 100% !important;
@@ -797,9 +808,9 @@ a:link {
     left: -9999px !important;
     pointer-events: none !important;
   }
-  
+   */
   /* Show ONLY active slide */
-  .contents-section .slick-slide.slick-active {
+  /* .contents-section .slick-slide.slick-active {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -807,24 +818,23 @@ a:link {
     left: auto !important;
     width: 100% !important;
     pointer-events: auto !important;
-  }
+  } */
   
   /* Double check - hide any slide that's not active */
-  .contents-section .slick-slide:not(.slick-active) {
+  /* .contents-section .slick-slide:not(.slick-active) {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
     position: absolute !important;
     left: -9999px !important;
     pointer-events: none !important;
-  }
-  
-  .contents-section .slick-slide > div {
-    width: 100% !important;
+  } */
+ .contents-section .slick-slide > div {
     padding: 0 10px;
     box-sizing: border-box;
     margin: 0 auto;
-  }
+}
+
   
   .contents-section .slick-slider {
     width: 100% !important;
@@ -959,6 +969,31 @@ a:link {
   .info-card {
     margin-bottom: 20px !important;
     height: auto !important;
+  }
+  
+  /* Slider fixes for mobile - ensure single slide */
+  .slick-slide {
+    /* width: 100% !important; */
+    margin: 0 !important;
+    padding: 0 5px !important;
+    min-width: 100% !important;
+  }
+  
+  .slick-list {
+    margin: 0 -5px !important;
+    /* width: 100% !important;
+    overflow: hidden !important; */
+  }
+  
+  .slick-track {
+    width: 100% !important;
+    display: flex !important;
+    transform: translate3d(0, 0, 0) !important;
+  }
+  
+  .slick-slider {
+    width: 100% !important;
+    overflow: hidden !important;
   }
 }
 
