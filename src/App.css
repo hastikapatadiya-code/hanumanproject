@@ -6,6 +6,9 @@
   padding: 0%;
   box-sizing: border-box;
 }
+/* * {
+  max-width: 100% !important;
+} */
 
 html, body {
   overflow-x: hidden;
@@ -23,6 +26,57 @@ img {
     object-fit: cover;
 }
 
+/* .slider-container {
+  width: 100%;
+} */
+/* .services-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  overflow: hidden;
+} */
+.service-card {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+/* @media (max-width: 576px) {
+  .container,
+  .services-container,
+  .center-fixed-content {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+} */
+/* .slick-slide {
+  display: flex !important;
+  justify-content: center !important;
+} */
+
+.services-container .slick-track {
+  display: flex !important;
+}
+/* .services-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden;
+} */
+.services-container {
+  width: 100% ;
+  max-width: 100% !important;
+}
+
+/* .services-container .slick-slider,
+.services-container .slick-list,
+.services-container .slick-track,
+.services-container .slick-slide {
+  width: 100% !important;
+} */
+
+@media (max-width: 576px) {
+  .slick-slide {
+    width: 100% !important;
+  }
+}
 
 ul,
 li {
@@ -42,7 +96,7 @@ a:link {
 
 .row {
   margin: 0px !important;
-
+ /* max-width: 1000px; */
 }
 
 .container {
@@ -792,4 +846,133 @@ a:link {
   font-weight: 700;
   color: rgba(255, 255, 255, 0.6);
   z-index: 1;
+}
+
+/* ============================================ Responsive Design ============================================ */
+
+/* Mobile Responsive - General */
+@media (max-width: 768px) {
+  .banner-container {
+    margin-top: 70px !important;
+  }
+  
+  .banner-container img {
+    height: 300px !important;
+  }
+  
+  .banner-text h1 {
+    font-size: 24px !important;
+  }
+  
+  .banner-text p {
+    font-size: 14px !important;
+  }
+  
+  .spacer {
+    padding: 20px !important;
+  }
+  
+  .spacer2 {
+    padding: 10px !important;
+  }
+  
+  /* Header adjustments */
+  .main-header {
+    padding: 10px 0 !important;
+  }
+  
+  /* Card adjustments */
+  .card-body {
+    padding: 15px !important;
+  }
+  
+  /* Slider adjustments */
+  .slick-arrow {
+    display: none !important;
+  }
+  
+  /* Container padding */
+  .container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+
+/* Tablet Responsive */
+@media (max-width: 992px) and (min-width: 769px) {
+  .banner-container {
+    margin-top: 75px !important;
+  }
+  
+  .banner-container img {
+    height: 350px !important;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 576px) {
+  .banner-container {
+    margin-top: 60px !important;
+  }
+  
+  .banner-container img {
+    height: 250px !important;
+  }
+  
+  .banner-text h1 {
+    font-size: 20px !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .banner-text p {
+    font-size: 12px !important;
+  }
+  
+  .banner-button {
+    font-size: 12px !important;
+    padding: 8px 16px !important;
+    margin: 5px !important;
+  }
+  
+  /* Services slider */
+  .service-card {
+    margin: 0 5px !important;
+  }
+  
+  /* Team cards */
+  .team-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Award boxes */
+  .award-box {
+    margin-bottom: 20px !important;
+  }
+  
+  /* Blog items */
+  .blog-item {
+    margin-bottom: 20px !important;
+  }
+  
+  /* Contact form */
+  .info-card {
+    margin-bottom: 20px !important;
+    height: auto !important;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 400px) {
+  .banner-text h1 {
+    font-size: 18px !important;
+  }
+  
+  .banner-text p {
+    font-size: 11px !important;
+  }
+  
+  .title {
+    font-size: 24px !important;
+  }
 }

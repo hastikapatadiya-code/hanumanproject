@@ -1,6 +1,5 @@
 
 import './App.css';
-// import Header from './components/Header';
 import Design from './components/Design';
 import Residential from './components/Residential';
 import Commercial from './components/Commercial';

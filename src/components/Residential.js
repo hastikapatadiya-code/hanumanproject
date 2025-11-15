@@ -1,7 +1,7 @@
 import Slider from "react-slick";
-import { useInView } from "react-intersection-observer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useInView } from "react-intersection-observer";
 import img from '../images/5.webp';
 import img1 from '../images/2.jpg';
 import img2 from '../images/3.jpeg';
@@ -43,11 +43,10 @@ const projects = [
 
 export default function Residential() {
 
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
- 
-    };
+    // };
 
     const [isSticky, setSticky] = useState(true);
 
@@ -74,31 +73,42 @@ export default function Residential() {
     const settings = {
         dots: false,
         infinite: true,
+        speed: 600,
         slidesToShow: 3,
         slidesToScroll: 1,
-        arrows: true,
         autoplay: true,
-        autoplaySpeed: 2000,
-        speed: 800,
-        cssEase: "linear",
-
+        autoplaySpeed: 3000,
+        arrows: true,
         responsive: [
             {
+                breakpoint: 1400,
+                settings: {
+                    slidesToShow: 3,
+                },
+            },
+            {
                 breakpoint: 992,
-                settings: { slidesToShow: 2 }
+                settings: {
+                    slidesToShow: 2,
+                },
             },
             {
                 breakpoint: 576,
-                settings: { slidesToShow: 1 }
-            }
-        ]
+                settings: {
+                    slidesToShow: 1,
+                    arrows: false,
+                },
+            },
+        ],
     };
+
+
 
 
     return (
         <>
-                <Header></Header>
-            <div className="banner-container position-relative">
+            <Header></Header>
+            <div className="banner-container position-relative" style={{ marginTop: '80px' }}>
                 <img src={residentialbanner} alt="Banner" style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
                 <div className="banner-text"
                     style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: '#fff', zIndex: 9 }}>
@@ -138,39 +148,37 @@ export default function Residential() {
                     {projects.map((proj) => (
                         <div key={proj.id} className="px-3">
                             <div className="card h-100 shadow">
-                                <div className="image-container position-relative" style={{ overflow: "hidden", borderRadius: "8px 8px 0 0" }}>
-                                    <div className={`image-container ${zoomedId === proj.id ? "zoom-active" : ""}`}
+                                <div className={`image-container position-relative ${zoomedId === proj.id ? "zoom-active" : ""}`}
+                                    style={{
+                                        width: "100%",
+                                        height: "250px",
+                                        overflow: "hidden",
+                                        borderRadius: "8px 8px 0 0"
+                                    }}
+                                    onMouseUp={() => handleMouseUp(proj.id)}>
+                                    <img src={proj.img}
+                                        alt={proj.title}
+                                        className="zoom-img"
                                         style={{
                                             width: "100%",
-                                            height: "250px",
-                                            overflow: "hidden",
-                                            borderRadius: "8px 8px 0 0",
-                                            position: "relative"
-                                        }}>
-                                        <img src={proj.img}
-                                            alt={proj.title}
-                                            className="zoom-img"
-                                            style={{
-                                                width: "100%",
-                                                height: "100%",
-                                                objectFit: "cover",
-                                                transition: "transform 0.5s ease"
-                                            }} />
-                                    </div>
-                                    <div className="card-body" onMouseUp={() => handleMouseUp(proj.id)}>
-                                        <h5 className="card-title fw-bold">{proj.title}</h5>
-                                        <p className="card-text about-header fw-bold">
-                                            <i className="bi bi-geo-alt"></i> {proj.location}
-                                        </p>
-                                        <p className="card-text about-header fw-bold">
-                                            <i className="bi bi-house-door"></i> {proj.beds}
-                                        </p>
+                                            height: "100%",
+                                            objectFit: "cover",
+                                            transition: "transform 0.5s ease"
+                                        }} />
+                                </div>
+                                <div className="card-body">
+                                    <h5 className="card-title fw-bold">{proj.title}</h5>
+                                    <p className="card-text about-header fw-bold">
+                                        <i className="bi bi-geo-alt"></i> {proj.location}
+                                    </p>
+                                    <p className="card-text about-header fw-bold">
+                                        <i className="bi bi-house-door"></i> {proj.beds}
+                                    </p>
 
-                                        <Link to="/ongoing" className="project-btn position-relative d-inline-block me-3 fw-bold px-3 rounded py-2"
-                                            style={{ overflow: "hidden", zIndex: "1", transition: "color 0.4s ease", color: "#fff" }}>
-                                            View More
-                                        </Link>
-                                    </div>
+                                    <Link to="/ongoing" className="project-btn position-relative d-inline-block me-3 fw-bold px-3 rounded py-2"
+                                        style={{ overflow: "hidden", zIndex: "1", transition: "color 0.4s ease", color: "#fff" }}>
+                                        View More
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -256,37 +264,44 @@ export function Currentprojectslider() {
     const settings2 = {
         dots: false,
         infinite: true,
+        speed: 600,
         slidesToShow: 3,
         slidesToScroll: 1,
-        arrows: true,
         autoplay: true,
-        autoplaySpeed: 2000,
-        speed: 800,
-        cssEase: "linear",
+        autoplaySpeed: 3000,
+        arrows: true,
 
         responsive: [
             {
                 breakpoint: 992,
-                settings: { slidesToShow: 2 }
+                settings: {
+                    slidesToShow: 2,
+                },
             },
             {
                 breakpoint: 576,
-                settings: { slidesToShow: 1 }
-            }
-        ]
+                settings: {
+                    slidesToShow: 1,
+                    arrows: false,
+                },
+            },
+        ],
     };
+
 
     return (
         <>
-            <div className="px-0 px-sm-5" ref={ref}>
+            <div className="px-0 px-sm-5" ref={ref} style={{ overflow: 'hidden', width: '100%' }}>
 
                 <div className="spacer2"></div>
                 <Slider {...settings2} >
                     {currentprojects.map((p, i) => (
-                        <div key={i} className="px-4">
+                        <div key={i} className="px-2 px-md-4">
                             <div className={`bg-white current-slider rounded overflow-hidden text-center ${inView ? 'animate__animated animate__fadeInUp' : ''}`}>
+
                                 <div style={{
-                                    width: "400px",
+                                    width: "100%",
+                                    maxWidth: "400px",
                                     height: "250px",
                                     margin: "0 auto",
                                     position: "relative"
@@ -295,14 +310,18 @@ export function Currentprojectslider() {
                                         width: "100%",
                                         height: "100%",
                                         overflow: "hidden"
-                                    }} >
-                                        <img src={p.image} alt={p.title} className="zoom-image rounded"
+                                    }}>
+                                        <img
+                                            src={p.image}
+                                            alt={p.title}
+                                            className="zoom-image rounded"
                                             style={{
                                                 width: "100%",
                                                 height: "100%",
                                                 objectFit: "cover",
                                                 transition: "transform 0.5s ease"
-                                            }} />
+                                            }}
+                                        />
                                     </div>
                                 </div>
 
@@ -310,10 +329,12 @@ export function Currentprojectslider() {
                                     <h4 className="text-xl font-semibold">{p.title}</h4>
                                     <p className="text-orange-500">{p.location}</p>
                                 </div>
+
                             </div>
                         </div>
                     ))}
                 </Slider>
+
             </div>
         </>
     );

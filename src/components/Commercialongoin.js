@@ -5,6 +5,11 @@ import img1 from '../images/2.jpg';
 import img2 from '../images/3.jpeg';
 import { Link } from "react-router-dom";
 import ongoingbanner from '../images/ongoingbanner.jpg';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+
 
 const projects = [
     {
@@ -80,12 +85,38 @@ const Commercialongoing = () => {
     const handleMouseUp = (id) => {
         setZoomedId(zoomedId === id ? null : id);
     };
+const settings2 = {
+        dots: false,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        speed: 800,
+        cssEase: "linear",
 
+        responsive: [
+            {
+                breakpoint: 1400,
+                settings: { slidesToShow: 3 }
+
+            },
+            {
+                breakpoint: 992,
+                settings: { slidesToShow: 2 }
+            },
+            {
+                breakpoint: 576,
+                settings: { slidesToShow: 1, arrows: false }
+            }
+        ]
+    };
     return(
         <>
         
             <Header></Header>
-            <div className="banner-container position-relative">
+            <div className="banner-container position-relative" style={{ marginTop: '80px' }}>
                 <img src={ongoingbanner} alt="Banner" style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
 
                 <div className="banner-text position-absolute"
@@ -108,45 +139,49 @@ const Commercialongoing = () => {
                 </h2>
                 <div className="spacer2"></div>
                 <div className="main-ongoing row">
-                    {projects.map((proj) => (
-                        <div key={proj.id} className="col-md-4 mb-4">  
-                            <div className="card h-100 shadow">
-                                <div className="image-container position-relative" style={{ overflow: "hidden", borderRadius: "8px 8px 0 0" }}>
-                                    <div
-                                        className={`image-container ${zoomedId === proj.id ? "zoom-active" : ""}`}
-                                        style={{
-                                            width: "100%",
-                                            height: "250px",
-                                            overflow: "hidden",
-                                            borderRadius: "8px 8px 0 0",
-                                            position: "relative",
-                                        }}>
-                                        <img
-                                            src={proj.img}
-                                            alt={proj.title}
-                                            className="zoom-img"
-                                            style={{
-                                                width: "100%",
-                                                height: "100%",
-                                                objectFit: "cover",
-                                                transition: "transform 0.5s ease",
-                                            }}
-                                        />
-                                    </div>
-                                </div>
+                    <Slider {...settings2}>
+    {projects.map((proj) => (
+        <div key={proj.id} className="p-2">  
+            <div className="card h-100 shadow">
+                <div className="image-container position-relative" style={{ overflow: "hidden", borderRadius: "8px 8px 0 0" }}>
+                    <div
+                        className={`image-container ${zoomedId === proj.id ? "zoom-active" : ""}`}
+                        style={{
+                            width: "100%",
+                            height: "250px",
+                            overflow: "hidden",
+                            borderRadius: "8px 8px 0 0",
+                            position: "relative",
+                        }}
+                    >
+                        <img
+                            src={proj.img}
+                            alt={proj.title}
+                            className="zoom-img"
+                            style={{
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                transition: "transform 0.5s ease",
+                            }}
+                        />
+                    </div>
+                </div>
 
-                                <div className="card-body" onMouseUp={() => handleMouseUp(proj.id)}>
-                                    <h5 className="card-title fw-bold">{proj.title}</h5>
-                                    <p className="card-text about-header fw-bold">
-                                        <i className="bi bi-geo-alt"></i> {proj.location}
-                                    </p>
-                                    <p className="card-text about-header fw-bold">
-                                        <i className="bi bi-house-door"></i> {proj.beds}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+                <div className="card-body" onMouseUp={() => handleMouseUp(proj.id)}>
+                    <h5 className="card-title fw-bold">{proj.title}</h5>
+                    <p className="card-text about-header fw-bold">
+                        <i className="bi bi-geo-alt"></i> {proj.location}
+                    </p>
+                    <p className="card-text about-header fw-bold">
+                        <i className="bi bi-house-door"></i> {proj.beds}
+                    </p>
+                </div>
+            </div>
+        </div>
+    ))}
+</Slider>
+
                 </div>
 
             </div >

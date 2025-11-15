@@ -109,97 +109,7 @@ const Home = () => {
   const [mainImage, setMainImage] = useState(aboutimg1);
   const sliderRef = useRef(null);
 
-  // Force slider to show only 1 slide on mobile - AGGRESSIVE FIX
-  useEffect(() => {
-    const hideNonActiveSlides = () => {
-      if (window.innerWidth <= 768) {
-        // Find all slides in contents section
-        const contentsSection = document.querySelector('.contents-section');
-        if (contentsSection) {
-          const slides = contentsSection.querySelectorAll('.slick-slide:not(.slick-active)');
-          slides.forEach(slide => {
-            slide.style.display = 'none';
-            slide.style.visibility = 'hidden';
-            slide.style.opacity = '0';
-            slide.style.position = 'absolute';
-            slide.style.left = '-9999px';
-          });
-          
-          // Show active slide
-          const activeSlide = contentsSection.querySelector('.slick-slide.slick-active');
-          if (activeSlide) {
-            activeSlide.style.display = 'block';
-            activeSlide.style.visibility = 'visible';
-            activeSlide.style.opacity = '1';
-            activeSlide.style.position = 'relative';
-            activeSlide.style.left = 'auto';
-            activeSlide.style.width = '100%';
-          }
-        }
-      }
-    };
 
-    const initSlider = () => {
-      if (sliderRef.current && window.innerWidth <= 768) {
-        try {
-          sliderRef.current.slickGoTo(0);
-          if (sliderRef.current.innerSlider) {
-            sliderRef.current.innerSlider.setPosition();
-            sliderRef.current.innerSlider.update();
-          }
-          // Force hide non-active slides
-          setTimeout(hideNonActiveSlides, 50);
-        } catch (e) {
-          // Silently handle errors
-        }
-      }
-    };
-
-    // Initialize multiple times
-    const timers = [
-      setTimeout(() => { initSlider(); hideNonActiveSlides(); }, 100),
-      setTimeout(() => { initSlider(); hideNonActiveSlides(); }, 200),
-      setTimeout(() => { initSlider(); hideNonActiveSlides(); }, 300),
-      setTimeout(() => { initSlider(); hideNonActiveSlides(); }, 500),
-      setTimeout(() => { initSlider(); hideNonActiveSlides(); }, 800)
-    ];
-
-    // Watch for slider changes
-    const observer = new MutationObserver(() => {
-      if (window.innerWidth <= 768) {
-        hideNonActiveSlides();
-      }
-    });
-
-    // Observe slider container
-    const sliderContainer = document.querySelector('.contents-section');
-    if (sliderContainer) {
-      observer.observe(sliderContainer, {
-        childList: true,
-        subtree: true,
-        attributes: true,
-        attributeFilter: ['class']
-      });
-    }
-
-    // Handle resize
-    const handleResize = () => {
-      if (window.innerWidth <= 768) {
-        setTimeout(() => {
-          initSlider();
-          hideNonActiveSlides();
-        }, 100);
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      timers.forEach(timer => clearTimeout(timer));
-      observer.disconnect();
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   const contentsData = [
     {
@@ -336,19 +246,22 @@ const services = {
   arrows: true,
   responsive: [
     {
+      breakpoint: 1400,
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+    {
       breakpoint: 992,
       settings: {
         slidesToShow: 2,
-        slidesToScroll: 1,
       },
     },
     {
       breakpoint: 576,
       settings: {
         slidesToShow: 1,
-        slidesToScroll: 1,
         arrows: false,
-        centerMode: false,
       },
     },
   ],
@@ -356,28 +269,6 @@ const services = {
 
 
 
-  // Function to hide non-active slides (used in settings)
-  const hideNonActiveSlidesCallback = () => {
-    if (window.innerWidth <= 768) {
-      const contentsSection = document.querySelector('.contents-section');
-      if (contentsSection) {
-        const slides = contentsSection.querySelectorAll('.slick-slide:not(.slick-active)');
-        slides.forEach(slide => {
-          slide.style.display = 'none';
-          slide.style.visibility = 'hidden';
-          slide.style.opacity = '0';
-        });
-        const activeSlide = contentsSection.querySelector('.slick-slide.slick-active');
-        if (activeSlide) {
-          activeSlide.style.display = 'block';
-          activeSlide.style.visibility = 'visible';
-          activeSlide.style.opacity = '1';
-        }
-      }
-    }
-  };
-
-  // Slider settings - simplified and reliable
   const settings = {
     dots: false,
     infinite: true,
@@ -387,33 +278,22 @@ const services = {
     initialSlide: 0,
     centerMode: false,
     arrows: true,
-    afterChange: hideNonActiveSlidesCallback,
     responsive: [
       {
         breakpoint: 992,
         settings: { 
-          slidesToShow: 3, 
-          slidesToScroll: 1,
-          initialSlide: 0,
-          centerMode: false
+          slidesToShow: 3 , 
         }
       },
         {
           breakpoint: 768,
           settings: { 
             slidesToShow: 1, 
-            slidesToScroll: 1,
-            initialSlide: 0,
-            arrows: true,
-            centerMode: false,
-            centerPadding: '0px',
-            adaptiveHeight: false,
-            swipeToSlide: false,
-            touchMove: true
           }
         }
     ]
   };
+  
   return (
     <>
       <Header></Header>

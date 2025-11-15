@@ -84,7 +84,7 @@ const Ongoing = () => {
     return (
         <>
             <Header></Header>
-            <div className="banner-container position-relative">
+            <div className="banner-container position-relative" style={{ marginTop: '80px' }}>
                 <img src={ongoingbanner} alt="Banner" style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
 
                 <div className="banner-text position-absolute"

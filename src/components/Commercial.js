@@ -7,6 +7,8 @@ import img from '../images/5.webp';
 import img1 from '../images/2.jpg';
 import img2 from '../images/3.jpeg';
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { Currentprojectslider } from "./Residential";
 
 const projects = [
@@ -71,34 +73,38 @@ const Commercial = () => {
     setZoomedId(zoomedId === id ? null : id);
   };
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: true,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    speed: 800,
-    cssEase: "linear",
+ const settings = {
+        dots: false,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        speed: 800,
+        cssEase: "linear",
 
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: { slidesToShow: 2 }
-      },
-      {
-        breakpoint: 576,
-        settings: { slidesToShow: 1 }
-      }
-    ]
-  };
+        responsive: [
+            {
+                breakpoint: 1400,
+                settings: { slidesToShow: 3 }
 
+            },
+            {
+                breakpoint: 992,
+                settings: { slidesToShow: 2 }
+            },
+            {
+                breakpoint: 576,
+                settings: { slidesToShow: 1, arrows: false }
+            }
+        ]
+    };
   return (
 
     <>
         <Header></Header>
-      <div className="banner-container position-relative">
+      <div className="banner-container position-relative" style={{ marginTop: '80px' }}>
         <img src={commercialbanner} alt="Banner" style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
         <div className="banner-text position-absolute"
           style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' , color: '#fff', zIndex: 9 }}>

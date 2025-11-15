@@ -124,7 +124,7 @@ function About() {
     return (
         <>
             <Header />
-            <div className="banner-container position-relative">
+            <div className="banner-container position-relative" style={{ marginTop: '80px' }}>
                 <img src={aboutbanner} alt="Banner" style={{ width: '100%', height: 'auto', objectFit: 'cover' }} />
 
                 <div className="banner-text"
